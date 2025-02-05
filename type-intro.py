@@ -174,3 +174,21 @@ print(user.id)
 # > 123
 
 # learn lot more about in related .py files in this repository
+
+"""TYPE HINTS WITH METADATA ANNOTATIONS"""
+# from typing import Annotated
+
+
+def say_hello(name: Annotated[str, "this is just metadata"]) -> str:
+    return f"Hello {name}"
+
+
+print(say_hello("Cursor"))
+
+# It is possible to use the space 'Annotated' to provide FastApi with addiotional
+# Metadata about I want my applications to behave
+
+"""
+The important thing to remember is that the first type parameter you pass to Annotated is the actual type. 
+The rest, is just metadata for other tools.
+"""
