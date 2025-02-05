@@ -1,4 +1,7 @@
 from typing import Optional
+from typing import Annotated
+from pydantic import BaseModel
+from datetime import datetime
 
 # https://fastapi.tiangolo.com/python-types
 
@@ -135,3 +138,39 @@ print(person_name("john", 23))
 # This is just a practice to remind myself how to creae an object and call method from a class and print it's value
 student_1 = Person("David", 12)
 print(student_1.call())  # 'call' is method created inside the class
+
+
+"""
+Pydantic models - For data validation
+"""
+# We Declare the 'SHAPE' of 'Data' as 'Classes'
+# Each Attribute has a 'Type'
+# Then create an Instance of that Class with some values and validate them
+# Gives an Object with all the Data
+# And get the edito support (Ctrl+Space)
+
+
+"""from pydanctic import BaseModel"""
+# Pydantic example below collected from official pydantic documentation visit https://docs.pydantic.dev/latest/
+
+
+class User(BaseModel):
+    id: int
+    name: str = "John Doe"
+    signup_ts: datetime
+    friends: list[int] = []
+
+
+external_data = {
+    "id": 123,
+    "signup_ts": "2025-02-05 01:00",
+    "friends": [1, "2", b"3"]
+}
+
+user = User(**external_data)
+print(user)
+# > User id=123 name='John Doe' signup_ts=datetime.datetime(2017, 6, 1, 12, 22) friends=[1, 2, 3]
+print(user.id)
+# > 123
+
+# learn lot more about in related .py files in this repository
