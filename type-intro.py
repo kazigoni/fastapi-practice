@@ -107,4 +107,31 @@ you can use the 'vertical bar (|)' to declare unions of types, that's a lot bett
 
 
 # Classes as types
-'''Classes as types'''
+'''
+Classes as types
+It's also possible to declare a class as the type of a variable.
+Let's use the below example class 'Person', with a name
+'''
+
+
+class Person:
+    def __init__(self, name: str, age: int):
+        self.name = name
+        self.age = age
+
+    def call(self):
+        return self.name, self.age
+
+# creating a function to user 'Person' class as variable value type for 'name' and 'age'
+# variable in 'person_name' function
+
+
+def person_name(name: Person, age: Person):
+    return f"{name}, age  {age}"
+
+
+print(person_name("john", 23))
+
+# This is just a practice to remind myself how to creae an object and call method from a class and print it's value
+student_1 = Person("David", 12)
+print(student_1.call())  # 'call' is method created inside the class
