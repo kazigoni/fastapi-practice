@@ -1,3 +1,4 @@
+# https://fastapi.tiangolo.com/python-types
 # type hint
 def full_name(fast_name: str, last_name: str):
     '''
