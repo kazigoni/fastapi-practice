@@ -167,7 +167,7 @@ external_data = {
     "friends": [1, "2", b"3"]
 }
 
-user = User(**external_data)
+user = User(**external_data)  # Unpacking data from external data dictionary
 print(user)
 # > User id=123 name='John Doe' signup_ts=datetime.datetime(2017, 6, 1, 12, 22) friends=[1, 2, 3]
 print(user.id)
